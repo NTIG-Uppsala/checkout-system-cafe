@@ -21,3 +21,10 @@ https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?v
 
 ### Extensions
 * FlaUI.UIA3
+
+## Documentation
+### Use the .editorconfig file (code analasysis system)
+* To use the code analysis system you have to start it manually.
+* Run the command "dotnet format" in the terminal
+* The system will then review and correct so the code follows the editorconfig standard
+
