@@ -11,14 +11,22 @@ using System.Windows.Shapes;
 
 namespace checkout_system_cafe
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void CoffeeButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Du har valt kaffe!");
+        }
+
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("`du har genomför en återställning av priset!");
         }
     }
 }
