@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "checkout-system-cafe", "checkout-system-cafe\checkout-system-cafe.csproj", "{28734C58-7B21-4E70-BDCF-C78E5D78304D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6C64A2D1-D164-47A8-92DA-4A80BF057F23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{28734C58-7B21-4E70-BDCF-C78E5D78304D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28734C58-7B21-4E70-BDCF-C78E5D78304D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28734C58-7B21-4E70-BDCF-C78E5D78304D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C64A2D1-D164-47A8-92DA-4A80BF057F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C64A2D1-D164-47A8-92DA-4A80BF057F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C64A2D1-D164-47A8-92DA-4A80BF057F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C64A2D1-D164-47A8-92DA-4A80BF057F23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
