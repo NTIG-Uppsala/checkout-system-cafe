@@ -40,7 +40,7 @@ namespace Tests
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
             // Hitta etiketten som visar totalpriset
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("Totalpris")).AsLabel();
+            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             // Kontrollera att totalpriset är "0 kr"
             Trace.Assert(totalpricelabel.Text == "0 kr", "Could not find 0 kr");
@@ -51,8 +51,8 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("Kaffe")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("Totalpris")).AsLabel();
+            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("coffee")).AsButton();
+            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
             Trace.Assert(totalpricelabel.Text == "15 kr", "Could not find 15 kr");
@@ -64,8 +64,8 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("Kaffe")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("Totalpris")).AsLabel();
+            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("coffee")).AsButton();
+            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
             coffeebutton.Click();
@@ -79,9 +79,9 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("Kaffe")).AsButton();
-            Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("Nollställ")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("Totalpris")).AsLabel();
+            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("coffee")).AsButton();
+            Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
+            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
             coffeebutton.Click();
@@ -96,9 +96,9 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("Kaffe")).AsButton();
-            Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("Nollställ")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("Totalpris")).AsLabel();
+            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("coffee")).AsButton();
+            Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
+            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
             resetbutton.Click();
@@ -112,8 +112,8 @@ namespace Tests
         {
 
             (Window window, ConditionFactory cf) = StartWindowHelper();
-            Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("Nollställ")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("Totalpris")).AsLabel();
+            Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
+            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             resetbutton.Click();
             Trace.Assert(totalpricelabel.Text == "0 kr", "Reset when total is zero does not work");
