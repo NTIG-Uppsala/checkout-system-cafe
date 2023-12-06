@@ -44,6 +44,7 @@ namespace Tests
 
             // Kontrollera att totalpriset är "0 kr"
             Trace.Assert(totalpricelabel.Text == "0 kr", "Could not find 0 kr");
+            window.Close();
         }
 
         [TestMethod]
@@ -56,7 +57,7 @@ namespace Tests
 
             coffeebutton.Click();
             Trace.Assert(totalpricelabel.Text == "15 kr", "Could not find 15 kr");
-
+            window.Close();
         }
 
         [TestMethod]
@@ -71,7 +72,7 @@ namespace Tests
             coffeebutton.Click();
             coffeebutton.Click();
             Trace.Assert(totalpricelabel.Text == "45 kr", "Total price does not work");
-
+            window.Close();
         }
 
         [TestMethod]
@@ -88,7 +89,7 @@ namespace Tests
             coffeebutton.Click();
             resetbutton.Click();
             Trace.Assert(totalpricelabel.Text == "0 kr", "Reset button does not work");
-
+            window.Close();
         }
 
         [TestMethod]
@@ -104,20 +105,19 @@ namespace Tests
             resetbutton.Click();
             coffeebutton.Click();
             Trace.Assert(totalpricelabel.Text == "15 kr", "Add coffee combined with reset price does not work");
-
+            window.Close();
         }
 
         [TestMethod]
         public void resetWhenZeroTest()
         {
-
             (Window window, ConditionFactory cf) = StartWindowHelper();
             Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             resetbutton.Click();
             Trace.Assert(totalpricelabel.Text == "0 kr", "Reset when total is zero does not work");
-
+            window.Close();
         }
     }
 }
