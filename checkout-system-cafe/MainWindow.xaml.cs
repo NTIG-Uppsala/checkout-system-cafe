@@ -4,7 +4,7 @@ namespace checkout_system_cafe
 {
     public partial class MainWindow : Window
     {
-        int value = 0;
+        int totalPriceAmount = 0; // price in SEK (kr)
         public MainWindow()
         {
             InitializeComponent();
@@ -12,18 +12,18 @@ namespace checkout_system_cafe
 
         public void UpdateDisplayedTotalPrice()
         {
-            totalPrice.Content = value + " kr";
+            totalPrice.Content = totalPriceAmount + " kr";
         }
 
         private void Coffee_Click(object sender, RoutedEventArgs e)
         {
-            value += 15;
+            totalPriceAmount += 15;
             UpdateDisplayedTotalPrice();
         }
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-            value = 0;
+            totalPriceAmount = 0;
             UpdateDisplayedTotalPrice();
         }
     }
