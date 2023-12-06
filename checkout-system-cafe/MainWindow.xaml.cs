@@ -22,7 +22,7 @@ namespace checkout_system_cafe
         {
             MessageBox.Show("Du har valt kaffe!");
         }
-
+           
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("`du har genomför en återställning av priset!");

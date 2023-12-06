@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="kaffe" Width="70" Height="30" Click="CoffeeButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,150,0,0"/>
-        <Button Content="Nollställ" Width="70" Height="30" Click="ResetButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,200,0,0"/>
+        <Button x:Name="Coffee" Content="Kaffe" Width="70" Height="30" Click="CoffeeButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,150,0,0"/>
+        <Button x:Name="Resetbutton" Content="Nollställ" Width="70" Height="30" Click="ResetButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,200,0,0"/>
     </Grid>
 </Window>
