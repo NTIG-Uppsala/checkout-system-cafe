@@ -9,7 +9,7 @@ namespace Tests
     public class UnitTest1
     {
         [TestMethod]
-        public void zeroTotalTest()
+        public void zeroAtStartTest()
         {
             // Hämta sökvägen till aktuell katalog
             string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
@@ -54,7 +54,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void coffeeTotalTest()
+        public void threeCoffeeTest()
         {
             string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             var app = FlaUI.Core.Application.Launch(Path.Combine(currentDirectory, "..", "..", "..", "..", "checkout-system-cafe\\bin\\Debug\\net8.0-windows\\checkout-system-cafe.exe"));
