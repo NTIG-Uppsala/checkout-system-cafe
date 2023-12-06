@@ -9,17 +9,27 @@ namespace Tests
     public class UnitTest1
     {
         [TestMethod]
-
         public void zeroTotalTest()
         {
+            // Hämta sökvägen till aktuell katalog
             string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+            // Starta applikationen
             var app = FlaUI.Core.Application.Launch(Path.Combine(currentDirectory, "..", "..", "..", "..", "checkout-system-cafe\\bin\\Debug\\net8.0-windows\\checkout-system-cafe.exe"));
+
+            // Använd UIA3Automation för att automatisera interaktion med UI
             using (var automation = new UIA3Automation())
             {
+                // Hämta huvudfönstret för applikationen
                 var window = app.GetMainWindow(automation);
+
+                // Skapa en fabrik för villkor för att söka efter UI-element
                 ConditionFactory cf = new ConditionFactory(new UIA3PropertyLibrary());
 
+                // Hitta etiketten som visar totalpriset
                 Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("Totalpris")).AsLabel();
+
+                // Kontrollera att totalpriset är "0 kr"
                 Trace.Assert(totalpricelabel.Text == "0 kr", "Could not find 0 kr");
             }
         }
