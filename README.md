@@ -1,6 +1,6 @@
 # checkout-cafe
 
-## Development enviroment standard
+## Development Enviroment Standard
 ### IDE
 Visual Studio 2022, latest community version at the time of commit
 https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?view=vs-2022
@@ -12,7 +12,7 @@ https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?v
 * OS-version: 19044.3693
 
 ## Code standard
-### Programming Languanguages
+### Programming Languages
 * C# v. 12
 * .NET v. 8.0
   
