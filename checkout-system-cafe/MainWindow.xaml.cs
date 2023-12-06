@@ -13,13 +13,17 @@ namespace checkout_system_cafe
 {
     public partial class MainWindow : Window
     {
+        int value = 0;
         public MainWindow()
         {
             InitializeComponent();
         }
+
         private void Coffee_Click(object sender, RoutedEventArgs e)
         {
-            totalPrice.Content = "15 kr";
+            value += 15;
+
+            totalPrice.Content = value + " kr";
         }
     }
 }
