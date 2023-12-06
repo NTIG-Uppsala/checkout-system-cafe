@@ -19,17 +19,21 @@ namespace checkout_system_cafe
             InitializeComponent();
         }
 
+        public void UpdateDisplayedTotalPrice()
+        {
+            totalPrice.Content = value + " kr";
+        }
+
         private void Coffee_Click(object sender, RoutedEventArgs e)
         {
             value += 15;
-
-            totalPrice.Content = value + " kr";
+            UpdateDisplayedTotalPrice();
         }
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
             value = 0;
-            totalPrice.Content = value + " kr";
+            UpdateDisplayedTotalPrice();
         }
     }
 }
