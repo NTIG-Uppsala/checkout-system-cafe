@@ -25,5 +25,11 @@ namespace checkout_system_cafe
 
             totalPrice.Content = value + " kr";
         }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            value = 0;
+            totalPrice.Content = value + " kr";
+        }
     }
 }
