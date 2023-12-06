@@ -17,6 +17,9 @@ namespace checkout_system_cafe
         {
             InitializeComponent();
         }
-
+        private void Coffee_Click(object sender, RoutedEventArgs e)
+        {
+            totalPrice.Content = "15 kr";
+        }
     }
 }
