@@ -15,13 +15,13 @@ namespace checkout_system_cafe
             totalPrice.Content = totalPriceAmount + " kr";
         }
 
-        private void Coffee_Click(object sender, RoutedEventArgs e)
+        private void CoffeeClick(object sender, RoutedEventArgs e)
         {
             totalPriceAmount += 15;
             UpdateDisplayedTotalPrice();
         }
 
-        private void Reset_Click(object sender, RoutedEventArgs e)
+        private void ResetClick(object sender, RoutedEventArgs e)
         {
             totalPriceAmount = 0;
             UpdateDisplayedTotalPrice();
