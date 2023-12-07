@@ -1,6 +1,6 @@
 # checkout-cafe
 
-## Development Enviroment Standard
+## Development Environment Standard
 ### IDE
 Visual Studio 2022, latest community version at the time of commit
 https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?view=vs-2022
@@ -17,8 +17,7 @@ https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?v
 * .NET v. 8.0
   
 ### Standard
-* Follow the .editorconfig file for coding standard, located in project folder
-* Github commit messages usually starts with lowercase 
+* Follow the .editorconfig folder for coding standard, located in the folder
 
 ### Extensions
 * FlaUI.UIA3
@@ -26,7 +25,7 @@ https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?v
 ## Documentation
 ### Setup 
 * Install FlaUI according to the instructions in the following [video](https://www.youtube.com/watch?v=86wfAnfgqGg&list=PLacgMXFs7kl_fuSSe6lp6YRaeAp6vqra9&index=7&ab_channel=HYRTutorials)
-* Install FlaUI inspect to find names, IDs and file paths easier.
+* Install FlaUI inspect to find names, IDs and file paths easier
   * Download [here](https://github.com/FlaUI/FlaUInspect/releases/)
   * Instructions for use [here](https://www.youtube.com/watch?v=790e_YlV16A&list=PLacgMXFs7kl_fuSSe6lp6YRaeAp6vqra9&index=9&ab_channel=HYRTutorials)
 * To run the tests you have to debug the checkout-system-cafe program
@@ -41,8 +40,12 @@ https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?v
 * Run the command "dotnet format" in the terminal
 * The system will then review and correct the code so it follows the editorconfig standard
 
-### Tests
-* When running the tests, do not move the mouse
-  * Mouse is used by the test program in order to click on buttons
+### Run released program
+* Enter the following [link](https://github.com/NTIG-Uppsala/checkout-system-cafe/releases/tag/v1.0.0)
+* Download "CheckoutSystemCafe.zip" underneath "Assets"
+* Extract the downloaded folder
+* Enter the "CheckoutSystemCafe" folder
+* Run the "checkout-system-cafe.exe" file, the program window should then start
+
 
 
