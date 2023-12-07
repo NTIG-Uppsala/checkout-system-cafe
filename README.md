@@ -40,4 +40,12 @@ https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?v
 * Run the command "dotnet format" in the terminal
 * The system will then review and correct the code so it follows the editorconfig standard
 
+### Run released program
+* Enter the following [link](https://github.com/NTIG-Uppsala/checkout-system-cafe/releases/tag/v1.0.0) to enter releases
+* Download "CheckoutSystemCafe.zip" underneath "Assets"
+* Extract the downloaded folder
+* Enter the "CheckoutSystemCafe" folder
+* Run the "checkout-system-cafe.exe" file, the program window should then start
+
+
 
