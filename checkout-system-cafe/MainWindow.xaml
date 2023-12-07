@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:checkout_system_cafe"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="kaffe" Width="70" Height="30" Click="CoffeeButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,150,0,0"/>
-        <Button Content="Nollställ" Width="70" Height="30" Click="ResetButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,200,0,0"/>
+    <Grid RenderTransformOrigin="0.45,0.527">
+        <Label x:Name="totalPrice" Content="0 kr" HorizontalAlignment="Left" Margin="370,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
+        <Button x:Name="coffee" Content="Kaffe" HorizontalAlignment="Left" Margin="334,224,0,0" VerticalAlignment="Top" Click="CoffeeClick"/>
+        <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Left" Margin="334,250,0,0" VerticalAlignment="Top" Click="ResetClick"/>
     </Grid>
 </Window>
