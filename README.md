@@ -43,6 +43,10 @@ Visual Studio 2022, latest community version at the time of commit download
 * Extract the downloaded folder
 * Enter the "CheckoutSystemCafe" folder
 * Run the "checkout-system-cafe.exe" file, the program window should then start
+* If you get "Windows has protected your computer" then press "More information"
+* ![image](https://github.com/NTIG-Uppsala/checkout-system-cafe/assets/142982637/0f54506a-fe7e-45a2-938e-7afa9d922ff1)
+* And then you press "run anyway", the program window should then start
+* ![image](https://github.com/NTIG-Uppsala/checkout-system-cafe/assets/142982637/6b770417-15a3-46bf-bc1b-018a39bd2cc4)
 
 
 
