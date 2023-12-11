@@ -2,8 +2,8 @@
 
 ## Development Environment Standard
 ### IDE
-Visual Studio 2022, latest community version at the time of commit
-https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?view=vs-2022
+Visual Studio 2022, latest community version at the time of commit download
+[here] (https://visualstudio.microsoft.com/downloads/)
 
 ### OS
 * Windows 10 
@@ -11,12 +11,11 @@ https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?v
 * Version: 21H2
 * OS-version: 19044.3693
 
-## Code standard
 ### Programming Languages
 * C# v. 12
 * .NET v. 8.0
   
-### Standard
+### Coding Standard
 * Follow the .editorconfig folder for coding standard, located in the folder
 
 ### Extensions
@@ -35,7 +34,7 @@ https://learn.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-wpf?v
   ![image](https://github.com/NTIG-Uppsala/checkout-system-cafe/assets/142985254/3515fd99-8014-4a83-914c-21d9e554753d)
 * If any code is changed in the checkout-system-cafe project then you have to debug again following the instructions above
   * This is for tests to function correctly  
-### Use the .editorconfig file (code analasysis system)
+### Use the .editorconfig file (code analysis system)
 * To use the code analysis system you have to start it manually
 * Run the command "dotnet format" in the terminal
 * The system will then review and correct the code so it follows the editorconfig standard
