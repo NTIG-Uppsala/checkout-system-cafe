@@ -3,7 +3,7 @@
 ## Development Environment Standard
 ### IDE
 Visual Studio 2022, latest community version at the time of commit download
-[here] (https://visualstudio.microsoft.com/downloads/)
+[here](https://visualstudio.microsoft.com/downloads/)
 
 ### OS
 * Windows 10 
