@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:checkout_system_cafe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Checkout-cafe" Height="1024" Width="768">
     <Grid RenderTransformOrigin="0.45,0.527">
         <Label x:Name="totalPrice" Content="0 kr" HorizontalAlignment="Left" Margin="370,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
         <Button x:Name="coffee" Content="Kaffe" HorizontalAlignment="Left" Margin="334,224,0,0" VerticalAlignment="Top" Click="CoffeeClick"/>
