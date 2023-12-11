@@ -4,7 +4,9 @@ namespace checkout_system_cafe
 {
     public partial class MainWindow : Window
     {
+#pragma warning disable IDE1006 // Naming Styles
         int totalPriceAmount = 0; // price in SEK (kr)
+#pragma warning restore IDE1006 // Naming Styles
         public MainWindow()
         {
             InitializeComponent();
