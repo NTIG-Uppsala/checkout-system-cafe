@@ -6,9 +6,7 @@ Visual Studio 2022, latest community version at the time of commit download
 [here](https://visualstudio.microsoft.com/downloads/)
 
 ### OS
-* Windows 10 
-* Edition: Windows 10 Education
-* Version: 21H2
+* Windows 10 Education, version 21H2
 * OS-version: 19044.3693
 
 ### Programming Languages
