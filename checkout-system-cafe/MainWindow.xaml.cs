@@ -1,24 +1,53 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace checkout_system_cafe
 {
     public partial class MainWindow : Window
     {
-        int totalPriceAmount = 0; // price in SEK (kr)
+        private decimal totalPriceAmount = 0; // Priset i SEK (kr)
+
         public MainWindow()
         {
             InitializeComponent();
+            Coffeebutton();
         }
 
-        public void UpdateDisplayedTotalPrice()
+        public class Produkt
         {
-            totalPrice.Content = totalPriceAmount + " kr";
+            public string? Namn { get; set; }
+            public decimal Pris { get; set; }
         }
 
-        private void CoffeeClick(object sender, RoutedEventArgs e)
+        private void Coffeebutton()
         {
-            totalPriceAmount += 15;
-            UpdateDisplayedTotalPrice();
+            Produkt kaffe = new()
+            {
+                Namn = "Kaffe",
+                Pris = 15
+            };
+
+            Button coffeebutton = new()
+            {
+                Content = kaffe.Namn,
+                Width = 60,
+                Height = 20,
+                Margin = new Thickness(0, 0, 100, 480)
+            };
+
+            coffeebutton.Click += (sender, e) =>
+            {
+                totalPriceAmount += kaffe.Pris;
+                UpdateDisplayedTotalPrice();
+            };
+
+            // Lägg till knappen till Grid i XAML
+            mainGrid.Children.Add(coffeebutton);
+        }
+
+        private void UpdateDisplayedTotalPrice()
+        {
+            totalPrice.Content = $"{totalPriceAmount} kr";
         }
 
         private void ResetClick(object sender, RoutedEventArgs e)
