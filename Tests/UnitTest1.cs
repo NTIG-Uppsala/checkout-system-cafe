@@ -13,19 +13,16 @@ namespace Tests
 
         public UnitTest1()
         {
-            // Find path to program catalog
             string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location) ?? throw new Exception();
             _pathToExecutable = Path.Combine(currentDirectory, "..", "..", "..", "..", "checkout-system-cafe\\bin\\Debug\\net8.0-windows\\checkout-system-cafe.exe");
         }
 
         public Tuple<Window, ConditionFactory> StartWindowHelper()
         {
-            // Start application
             var app = FlaUI.Core.Application.Launch(_pathToExecutable);
 
-            // Use UIA3Automation automate integration with UI
             using var automation = new UIA3Automation();
-            // Get main window for application
+
             var window = app.GetMainWindow(automation);
 
             // Create a fabric for condition to search for UI-element
@@ -42,7 +39,6 @@ namespace Tests
             // Fínd label showing total price
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
-            // "0 kr" totalprice control
             Trace.Assert(totalpricelabel.Text == "0 kr", "Could not find 0 kr");
             window.Close();
         }
