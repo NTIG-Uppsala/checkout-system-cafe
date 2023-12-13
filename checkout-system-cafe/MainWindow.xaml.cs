@@ -6,7 +6,7 @@ namespace checkout_system_cafe
 {
     public partial class MainWindow : Window
     {
-        private decimal _totalPriceAmount = 0; // Price in SEK (kr)
+        private decimal _totalPriceAmount = 0; // Priset i SEK (kr)
 
         public MainWindow()
         {
@@ -14,26 +14,26 @@ namespace checkout_system_cafe
             Coffeebutton();
         }
 
-        public class Product
+        public class Produkt
         {
-            public string? Name { get; set; }
-            public decimal Price { get; set; }
+            public string? Namn { get; set; }
+            public decimal Pris { get; set; }
         }
 
-        private static Product CreateCoffeeProduct()
+        private static Produkt CreateCoffeeProduct()
         {
-            return new Product
+            return new Produkt
             {
-                Name = "Kaffe",
-                Price = 15
+                Namn = "Kaffe",
+                Pris = 15
             };
         }
 
-        private Button CreateCoffeeButton(Product product)
+        private Button CreateCoffeeButton(Produkt product)
         {
             Button coffeeButton = new ()
             {
-                Content = product.Name,
+                Content = product.Namn,
                 Width = 60,
                 Height = 20,
                 Margin = new Thickness(0, 0, 100, 480)
@@ -43,7 +43,7 @@ namespace checkout_system_cafe
 
             coffeeButton.Click += (sender, e) =>
             {
-                _totalPriceAmount += product.Price;
+                _totalPriceAmount += product.Pris;
                 UpdateDisplayedTotalPrice();
             };
 
@@ -52,10 +52,11 @@ namespace checkout_system_cafe
 
         private void Coffeebutton()
         {
-            Product kaffe = CreateCoffeeProduct();
+            Produkt kaffe = CreateCoffeeProduct();
             Button coffeeButton = CreateCoffeeButton(kaffe);
 
-            mainGrid.Children.Add(coffeeButton); // Add button to Grid in XAML
+            // Lägg till knappen till Grid i XAML
+            mainGrid.Children.Add(coffeeButton);
         }
 
         private void UpdateDisplayedTotalPrice()

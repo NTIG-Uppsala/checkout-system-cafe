@@ -20,15 +20,15 @@ namespace Tests
 
         public Tuple<Window, ConditionFactory> StartWindowHelper()
         {
-            // Start application
+            // Starta applikationen
             var app = FlaUI.Core.Application.Launch(_pathToExecutable);
 
-            // Use UIA3Automation automate integration with UI
+            // Använd UIA3Automation för att automatisera interaktion med UI
             using var automation = new UIA3Automation();
-            // Get main window for application
+            // Hämta huvudfönstret för applikationen
             var window = app.GetMainWindow(automation);
 
-            // Create a fabric for condition to search for UI-element
+            // Skapa en fabrik för villkor för att söka efter UI-element
             ConditionFactory cf = new(new UIA3PropertyLibrary());
 
             return new Tuple<Window, ConditionFactory>(window, cf);
@@ -39,10 +39,10 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            // Fínd label showing total price
+            // Hitta etiketten som visar totalpriset
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
-            // "0 kr" totalprice control
+            // Kontrollera att totalpriset är "0 kr"
             Trace.Assert(totalpricelabel.Text == "0 kr", "Could not find 0 kr");
             window.Close();
         }
