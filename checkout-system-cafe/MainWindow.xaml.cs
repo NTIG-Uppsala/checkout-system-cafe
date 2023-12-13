@@ -6,7 +6,7 @@ namespace checkout_system_cafe
 {
     public partial class MainWindow : Window
     {
-        private decimal totalPriceAmount = 0; // Priset i SEK (kr)
+        private decimal _totalPriceAmount = 0; // Priset i SEK (kr)
 
         public MainWindow()
         {
@@ -43,7 +43,7 @@ namespace checkout_system_cafe
 
             coffeeButton.Click += (sender, e) =>
             {
-                totalPriceAmount += product.Pris;
+                _totalPriceAmount += product.Pris;
                 UpdateDisplayedTotalPrice();
             };
 
@@ -61,12 +61,12 @@ namespace checkout_system_cafe
 
         private void UpdateDisplayedTotalPrice()
         {
-            totalPrice.Content = $"{totalPriceAmount} kr";
+            totalPrice.Content = $"{_totalPriceAmount} kr";
         }
 
         private void ResetClick(object sender, RoutedEventArgs e)
         {
-            totalPriceAmount = 0;
+            _totalPriceAmount = 0;
             UpdateDisplayedTotalPrice();
         }
     }
