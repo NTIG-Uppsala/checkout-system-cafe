@@ -72,6 +72,21 @@ namespace Tests
         }
 
         [TestMethod]
+        public void ThreeBunTest()
+        {
+            (Window window, ConditionFactory cf) = StartWindowHelper();
+
+            Button bunbutton = window.FindFirstDescendant(cf.ByAutomationId("bun")).AsButton();
+            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
+
+            bunbutton.Click();
+            bunbutton.Click();
+            bunbutton.Click();
+            Trace.Assert(totalpricelabel.Text == "30 kr", "Could not find 30 kr");
+            window.Close();
+        }
+
+        [TestMethod]
         public void ResetButtonTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
