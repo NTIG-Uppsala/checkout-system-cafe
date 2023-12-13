@@ -39,7 +39,7 @@ namespace checkout_system_cafe
                 Margin = new Thickness(0, 0, 100, 480)
             };
 
-            AutomationProperties.SetAutomationId(coffeeButton, "coffee");
+            AutomationProperties.SetAutomationId(coffeeButton, "coffee"); //Needed for the tests to work
 
             coffeeButton.Click += (sender, e) =>
             {
