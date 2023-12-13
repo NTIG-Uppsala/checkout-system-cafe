@@ -29,13 +29,13 @@ namespace Tests
             var window = app.GetMainWindow(automation);
 
             // Skapa en fabrik för villkor för att söka efter UI-element
-            ConditionFactory cf = new ConditionFactory(new UIA3PropertyLibrary());
+            ConditionFactory cf = new(new UIA3PropertyLibrary());
 
             return new Tuple<Window, ConditionFactory>(window, cf);
         }
 
         [TestMethod]
-        public void zeroAtStartTest()
+        public void ZeroAtStartTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
@@ -48,7 +48,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void oneCoffeeTest()
+        public void OneCoffeeTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
@@ -61,7 +61,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void threeCoffeeTest()
+        public void ThreeCoffeeTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
@@ -76,7 +76,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void resetButtonTest()
+        public void ResetButtonTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
@@ -93,7 +93,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void resetAndCountinueTest()
+        public void ResetAndCountinueTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
@@ -109,7 +109,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void resetWhenZeroTest()
+        public void ResetWhenZeroTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
             Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
