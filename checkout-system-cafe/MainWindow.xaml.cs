@@ -20,31 +20,43 @@ namespace checkout_system_cafe
             public decimal Pris { get; set; }
         }
 
-        private void Coffeebutton()
+        private static Produkt CreateCoffeeProduct()
         {
-            Produkt kaffe = new()
+            return new Produkt
             {
                 Namn = "Kaffe",
                 Pris = 15
             };
+        }
 
-            Button coffeebutton = new()
+        private Button CreateCoffeeButton(Produkt product)
+        {
+            Button coffeeButton = new ()
             {
-                Content = kaffe.Namn,
+                Content = product.Namn,
                 Width = 60,
                 Height = 20,
                 Margin = new Thickness(0, 0, 100, 480)
             };
 
-            coffeebutton.Click += (sender, e) =>
             AutomationProperties.SetAutomationId(coffeeButton, "coffee");
+
+            coffeeButton.Click += (sender, e) =>
             {
-                totalPriceAmount += kaffe.Pris;
+                totalPriceAmount += product.Pris;
                 UpdateDisplayedTotalPrice();
             };
 
+            return coffeeButton;
+        }
+
+        private void Coffeebutton()
+        {
+            Produkt kaffe = CreateCoffeeProduct();
+            Button coffeeButton = CreateCoffeeButton(kaffe);
+
             // Lägg till knappen till Grid i XAML
-            mainGrid.Children.Add(coffeebutton);
+            mainGrid.Children.Add(coffeeButton);
         }
 
         private void UpdateDisplayedTotalPrice()
