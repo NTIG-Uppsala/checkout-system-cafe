@@ -13,22 +13,22 @@ namespace Tests
 
         public UnitTest1()
         {
-            // Hämta sökvägen till aktuell katalog
+            // Find path to program catalog
             string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location) ?? throw new Exception();
             _pathToExecutable = Path.Combine(currentDirectory, "..", "..", "..", "..", "checkout-system-cafe\\bin\\Debug\\net8.0-windows\\checkout-system-cafe.exe");
         }
 
         public Tuple<Window, ConditionFactory> StartWindowHelper()
         {
-            // Starta applikationen
+            // Start application
             var app = FlaUI.Core.Application.Launch(_pathToExecutable);
 
-            // Använd UIA3Automation för att automatisera interaktion med UI
+            // Use UIA3Automation automate integration with UI
             using var automation = new UIA3Automation();
-            // Hämta huvudfönstret för applikationen
+            // Get main window for application
             var window = app.GetMainWindow(automation);
 
-            // Skapa en fabrik för villkor för att söka efter UI-element
+            // Create a fabric for condition to search for UI-element
             ConditionFactory cf = new(new UIA3PropertyLibrary());
 
             return new Tuple<Window, ConditionFactory>(window, cf);
@@ -39,10 +39,10 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            // Hitta etiketten som visar totalpriset
+            // Fínd label showing total price
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
-            // Kontrollera att totalpriset är "0 kr"
+            // "0 kr" totalprice control
             Trace.Assert(totalpricelabel.Text == "0 kr", "Could not find 0 kr");
             window.Close();
         }
