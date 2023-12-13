@@ -37,6 +37,13 @@ Visual Studio 2022, latest community version at the time of commit download
 * Run the command "dotnet format" in the terminal
 * The system will then review and correct the code, so it follows the editorconfig standard
 
+### Publish released program
+* Open the project in Visual Studio, which you want to publish
+* Enter command "dotnet publish" in the Visual Studio terminal
+* Path to the created release is mentioned in the terminal
+* Select all files in the publish folder, zip all and rename the zipped file "CheckoutSystemCafe.zip"
+* Follow these [instructions](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release) in order to publish the release on GitHub
+
 ### Run released program
 * Enter the following [link](https://github.com/NTIG-Uppsala/checkout-system-cafe/releases/tag/v1.0.0)
 * Download "CheckoutSystemCafe.zip" underneath "Assets"
@@ -47,6 +54,3 @@ Visual Studio 2022, latest community version at the time of commit download
 * ![image](https://github.com/NTIG-Uppsala/checkout-system-cafe/assets/142982637/0f54506a-fe7e-45a2-938e-7afa9d922ff1)
 * And then you press "run anyway", the program window should then start
 * ![image](https://github.com/NTIG-Uppsala/checkout-system-cafe/assets/142982637/6b770417-15a3-46bf-bc1b-018a39bd2cc4)
-
-
-
