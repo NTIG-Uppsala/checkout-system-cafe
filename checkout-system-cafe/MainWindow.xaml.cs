@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Automation;
 
 namespace checkout_system_cafe
 {
@@ -36,6 +37,7 @@ namespace checkout_system_cafe
             };
 
             coffeebutton.Click += (sender, e) =>
+            AutomationProperties.SetAutomationId(coffeeButton, "coffee");
             {
                 totalPriceAmount += kaffe.Pris;
                 UpdateDisplayedTotalPrice();
