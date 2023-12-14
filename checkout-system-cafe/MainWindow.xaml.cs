@@ -41,7 +41,7 @@ namespace checkout_system_cafe
                 Content = product.Name,
                 Width = 100,
                 Height = 40,
-                Margin = new Thickness(0, index * 90, 100, 0)
+                Margin = new Thickness(0, index * 90, 250, 150)
             };
 
             AutomationProperties.SetAutomationId(productButton, product.Name?.ToLower());

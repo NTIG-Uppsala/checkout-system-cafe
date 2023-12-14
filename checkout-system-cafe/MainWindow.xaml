@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Checkout-cafe" Height="768" Width="1024">
     <Grid x:Name="mainGrid">
-        <Label x:Name="totalPrice" Content="0 kr" HorizontalAlignment="Left" Margin="278,384,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
-        <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Left" Margin="76,376,0,0" VerticalAlignment="Top" Click="ResetClick" Height="41" Width="100"/>
+        <Label x:Name="totalPrice" Content="0 kr" HorizontalAlignment="Left" Margin="593,372,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
+        <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Click="ResetClick" Height="41" Width="100"/>
     </Grid>
 </Window>
