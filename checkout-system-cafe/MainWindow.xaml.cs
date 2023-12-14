@@ -6,6 +6,8 @@ namespace checkout_system_cafe
     public partial class MainWindow : Window
     {
         private decimal _totalPriceAmount = 0; // Price in SEK (kr)
+        const int BUTTON_WIDTH = 100;
+        const int BUTTON_HEIGHT = 40;
 
         public MainWindow()
         {
@@ -37,9 +39,9 @@ namespace checkout_system_cafe
             Button productButton = new()
             {
                 Content = product.Name,
-                Width = 100,
-                Height = 40,
-                Margin = new Thickness(0, index * 90, 250, 150)
+                Width = BUTTON_WIDTH,
+                Height = BUTTON_HEIGHT,
+                Margin = new Thickness(0, index * (BUTTON_HEIGHT + 50), 250, 150)
             };
 
             AutomationProperties.SetAutomationId(productButton, product.Name?.ToLower());
