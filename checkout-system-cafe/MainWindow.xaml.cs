@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Automation;
+using System.Windows.Controls;
 namespace checkout_system_cafe
 {
     public partial class MainWindow : Window
@@ -37,7 +37,7 @@ namespace checkout_system_cafe
             [
                 // Add products here
                 new Product { Name = "Kaffe", Price = 15 },
-                new Product { Name = "Cappuccino", Price = 30},
+                new Product { Name = "Cappuccino", Price = 30 },
                 new Product { Name = "Bulle", Price = 10 },
                 new Product { Name = "Te", Price = 15 },
                 new Product { Name = "Iste", Price = 25 },
