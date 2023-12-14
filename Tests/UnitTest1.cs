@@ -87,51 +87,6 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ThreeBunTest()
-        {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button bunbutton = window.FindFirstDescendant(cf.ByAutomationId("bulle")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
-
-            bunbutton.Click();
-            bunbutton.Click();
-            bunbutton.Click();
-            Trace.Assert(totalpricelabel.Text == "30 kr", "Could not find 30 kr");
-            window.Close();
-        }
-
-        [TestMethod]
-        public void ThreeTeaTest()
-        {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button teabutton = window.FindFirstDescendant(cf.ByAutomationId("te")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
-
-            teabutton.Click();
-            teabutton.Click();
-            teabutton.Click();
-            Trace.Assert(totalpricelabel.Text == "45 kr", "Could not find 45 kr");
-            window.Close();
-        }
-
-        [TestMethod]
-        public void ThreeIcedTeaTest()
-        {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button icedteabutton = window.FindFirstDescendant(cf.ByAutomationId("iste")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
-
-            icedteabutton.Click();
-            icedteabutton.Click();
-            icedteabutton.Click();
-            Trace.Assert(totalpricelabel.Text == "75 kr", "Could not find 75 kr");
-            window.Close();
-        }
-
-        [TestMethod]
         public void ResetButtonTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();

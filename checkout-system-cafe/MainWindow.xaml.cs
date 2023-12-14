@@ -1,8 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Automation;
-using System.Collections.Generic;
-
 namespace checkout_system_cafe
 {
     public partial class MainWindow : Window
