@@ -30,14 +30,14 @@ namespace checkout_system_cafe
             ];
         }
 
-        private Button CreateCoffeeButton(Product product)
+        private Button CreateProductButton(Product product, int index)
         {
             Button productButton = new()
             {
                 Content = product.Name,
-                Width = 60,
-                Height = 20,
-                Margin = new Thickness(0, 0, 100, 480)
+                Width = 100,
+                Height = 40,
+                Margin = new Thickness(0, index * 90, 100, 0)
             };
 
             AutomationProperties.SetAutomationId(productButton, product.Name?.ToLower());
