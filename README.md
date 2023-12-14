@@ -45,7 +45,7 @@ Visual Studio 2022, latest community version at the time of commit download
 * Follow these [instructions](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release) in order to publish the release on GitHub
 
 ### Run released program
-* Enter the following [link](https://github.com/NTIG-Uppsala/checkout-system-cafe/releases/tag/v1.0.0)
+* Enter the following [link](https://github.com/NTIG-Uppsala/checkout-system-cafe/releases/latest)
 * Download "CheckoutSystemCafe.zip" underneath "Assets"
 * Extract the downloaded folder
 * Enter the "CheckoutSystemCafe" folder

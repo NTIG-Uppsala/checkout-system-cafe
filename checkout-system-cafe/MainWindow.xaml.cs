@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Automation;
+using System.Collections.Generic;
 
 namespace checkout_system_cafe
 {
@@ -11,7 +12,7 @@ namespace checkout_system_cafe
         public MainWindow()
         {
             InitializeComponent();
-            Coffeebutton();
+            InitializeProductButtons();
         }
 
         public class Product
@@ -20,42 +21,48 @@ namespace checkout_system_cafe
             public decimal Price { get; set; }
         }
 
-        private static Product CreateCoffeeProduct()
+        private List<Product> GetProducts()
         {
-            return new Product
-            {
-                Name = "Kaffe",
-                Price = 15
-            };
+            return
+            [
+                // Add products here
+                new Product { Name = "Kaffe", Price = 15 },
+                new Product { Name = "Cappuccino", Price = 30},
+                new Product { Name = "Bulle", Price = 10 },
+                new Product { Name = "Te", Price = 15 },
+                new Product { Name = "IsTe", Price = 25 }
+            ];
         }
 
-        private Button CreateCoffeeButton(Product product)
+        private Button CreateProductButton(Product product, int index)
         {
-            Button coffeeButton = new ()
+            Button productButton = new()
             {
                 Content = product.Name,
-                Width = 60,
-                Height = 20,
-                Margin = new Thickness(0, 0, 100, 480)
+                Width = 100,
+                Height = 40,
+                Margin = new Thickness(0, index * 90, 250, 150)
             };
 
-            AutomationProperties.SetAutomationId(coffeeButton, "coffee"); //Needed for the tests to work
+            AutomationProperties.SetAutomationId(productButton, product.Name?.ToLower());
 
-            coffeeButton.Click += (sender, e) =>
+            productButton.Click += (sender, e) =>
             {
                 _totalPriceAmount += product.Price;
                 UpdateDisplayedTotalPrice();
             };
 
-            return coffeeButton;
+            return productButton;
         }
 
-        private void Coffeebutton()
+        private void InitializeProductButtons()
         {
-            Product kaffe = CreateCoffeeProduct();
-            Button coffeeButton = CreateCoffeeButton(kaffe);
-
-            mainGrid.Children.Add(coffeeButton); // Add button to Grid in XAML
+            List<Product> products = GetProducts();
+            for (int i = 0; i < products.Count; i++)
+            {
+                Button productButton = CreateProductButton(products[i], i);
+                mainGrid.Children.Add(productButton);
+            }
         }
 
         private void UpdateDisplayedTotalPrice()
