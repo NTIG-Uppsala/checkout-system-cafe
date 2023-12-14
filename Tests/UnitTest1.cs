@@ -48,7 +48,7 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("coffee")).AsButton();
+            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("kaffe")).AsButton();
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
@@ -61,7 +61,7 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("coffee")).AsButton();
+            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("kaffe")).AsButton();
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
@@ -76,7 +76,7 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button bunbutton = window.FindFirstDescendant(cf.ByAutomationId("bun")).AsButton();
+            Button bunbutton = window.FindFirstDescendant(cf.ByAutomationId("bulle")).AsButton();
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             bunbutton.Click();
@@ -91,7 +91,7 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("coffee")).AsButton();
+            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("kaffe")).AsButton();
             Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
@@ -108,7 +108,7 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("coffee")).AsButton();
+            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("kaffe")).AsButton();
             Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
