@@ -10,8 +10,8 @@ namespace Tests
     [TestClass]
     public class UnitTest1
     {
-        private Window? _window;
-        private ConditionFactory? _cf;
+        private Window _window;
+        private ConditionFactory _cf;
 
         private readonly string _pathToExecutable;
 
