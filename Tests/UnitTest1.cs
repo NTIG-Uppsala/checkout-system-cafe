@@ -104,7 +104,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ResetAndCountinueTest()
+        public void ResetAndContinueTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 

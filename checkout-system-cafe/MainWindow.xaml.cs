@@ -28,7 +28,7 @@ namespace checkout_system_cafe
                 new Product { Name = "Cappuccino", Price = 30},
                 new Product { Name = "Bulle", Price = 10 },
                 new Product { Name = "Te", Price = 15 },
-                new Product { Name = "IsTe", Price = 25 }
+                new Product { Name = "Iste", Price = 25 }
             ];
         }
 
