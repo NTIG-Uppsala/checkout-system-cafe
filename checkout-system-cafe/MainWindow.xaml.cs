@@ -21,6 +21,16 @@ namespace checkout_system_cafe
             public decimal Price { get; set; }
         }
 
+        private void InitializeProductButtons()
+        {
+            List<Product> products = GetProducts();
+            for (int i = 0; i < products.Count; i++)
+            {
+                Button productButton = CreateProductButton(products[i], i);
+                mainGrid.Children.Add(productButton);
+            }
+        }
+
         private List<Product> GetProducts()
         {
             return
@@ -53,16 +63,6 @@ namespace checkout_system_cafe
             };
 
             return productButton;
-        }
-
-        private void InitializeProductButtons()
-        {
-            List<Product> products = GetProducts();
-            for (int i = 0; i < products.Count; i++)
-            {
-                Button productButton = CreateProductButton(products[i], i);
-                mainGrid.Children.Add(productButton);
-            }
         }
 
         private void UpdateDisplayedTotalPrice()
