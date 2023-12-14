@@ -121,7 +121,7 @@ namespace Tests
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button icedteabutton = window.FindFirstDescendant(cf.ByAutomationId("isTe")).AsButton();
+            Button icedteabutton = window.FindFirstDescendant(cf.ByAutomationId("iste")).AsButton();
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
             icedteabutton.Click();
