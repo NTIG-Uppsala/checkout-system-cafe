@@ -72,16 +72,16 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ThreeCappucinoTest()
+        public void ThreeCappuccinoTest()
         {
             (Window window, ConditionFactory cf) = StartWindowHelper();
 
-            Button cappucinobutton = window.FindFirstDescendant(cf.ByAutomationId("cappucino")).AsButton();
+            Button cappuccinobutton = window.FindFirstDescendant(cf.ByAutomationId("cappuccino")).AsButton();
             Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
 
-            cappucinobutton.Click();
-            cappucinobutton.Click();
-            cappucinobutton.Click();
+            cappuccinobutton.Click();
+            cappuccinobutton.Click();
+            cappuccinobutton.Click();
             Trace.Assert(totalpricelabel.Text == "90 kr", "Could not find 90 kr");
             window.Close();
         }
