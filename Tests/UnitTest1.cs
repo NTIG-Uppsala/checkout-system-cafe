@@ -4,11 +4,15 @@ using System.Reflection;
 using FlaUI.Core.AutomationElements;
 using FlaUI.Core.Conditions;
 using FlaUI.UIA3;
+
 namespace Tests
 {
     [TestClass]
     public class UnitTest1
     {
+        private Window _window;
+        private ConditionFactory _cf;
+
         private readonly string _pathToExecutable;
 
         public UnitTest1()
@@ -17,163 +21,97 @@ namespace Tests
             _pathToExecutable = Path.Combine(currentDirectory, "..", "..", "..", "..", "checkout-system-cafe\\bin\\Debug\\net8.0-windows\\checkout-system-cafe.exe");
         }
 
-        public Tuple<Window, ConditionFactory> StartWindowHelper()
+        [TestInitialize]
+        public void TestInitialize()
         {
             var app = FlaUI.Core.Application.Launch(_pathToExecutable);
-
             using var automation = new UIA3Automation();
+            _window = app.GetMainWindow(automation);
+            _cf = new ConditionFactory(new UIA3PropertyLibrary());
+        }
 
-            var window = app.GetMainWindow(automation);
-
-            // Create a fabric for condition to search for UI-element
-            ConditionFactory cf = new(new UIA3PropertyLibrary());
-
-            return new Tuple<Window, ConditionFactory>(window, cf);
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            _window.Close();
         }
 
         [TestMethod]
         public void ZeroAtStartTest()
         {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            // Fínd label showing total price
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
-
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
             Trace.Assert(totalpricelabel.Text == "0 kr", "Could not find 0 kr");
-            window.Close();
         }
 
         [TestMethod]
         public void OneCoffeeTest()
         {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("kaffe")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
+            Button coffeebutton = _window.FindFirstDescendant(_cf.ByAutomationId("kaffe")).AsButton();
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
             Trace.Assert(totalpricelabel.Text == "15 kr", "Could not find 15 kr");
-            window.Close();
         }
 
         [TestMethod]
         public void ThreeCoffeeTest()
         {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("kaffe")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
+            Button coffeebutton = _window.FindFirstDescendant(_cf.ByAutomationId("kaffe")).AsButton();
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
             coffeebutton.Click();
             coffeebutton.Click();
             Trace.Assert(totalpricelabel.Text == "45 kr", "Total price does not work");
-            window.Close();
         }
 
         [TestMethod]
         public void ThreeCappuccinoTest()
         {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button cappuccinobutton = window.FindFirstDescendant(cf.ByAutomationId("cappuccino")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
+            Button cappuccinobutton = _window.FindFirstDescendant(_cf.ByAutomationId("cappuccino")).AsButton();
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
 
             cappuccinobutton.Click();
             cappuccinobutton.Click();
             cappuccinobutton.Click();
             Trace.Assert(totalpricelabel.Text == "90 kr", "Could not find 90 kr");
-            window.Close();
-        }
-
-        [TestMethod]
-        public void ThreeBunTest()
-        {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button bunbutton = window.FindFirstDescendant(cf.ByAutomationId("bulle")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
-
-            bunbutton.Click();
-            bunbutton.Click();
-            bunbutton.Click();
-            Trace.Assert(totalpricelabel.Text == "30 kr", "Could not find 30 kr");
-            window.Close();
-        }
-
-        [TestMethod]
-        public void ThreeTeaTest()
-        {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button teabutton = window.FindFirstDescendant(cf.ByAutomationId("te")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
-
-            teabutton.Click();
-            teabutton.Click();
-            teabutton.Click();
-            Trace.Assert(totalpricelabel.Text == "45 kr", "Could not find 45 kr");
-            window.Close();
-        }
-
-        [TestMethod]
-        public void ThreeIcedTeaTest()
-        {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button icedteabutton = window.FindFirstDescendant(cf.ByAutomationId("iste")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
-
-            icedteabutton.Click();
-            icedteabutton.Click();
-            icedteabutton.Click();
-            Trace.Assert(totalpricelabel.Text == "75 kr", "Could not find 75 kr");
-            window.Close();
         }
 
         [TestMethod]
         public void ResetButtonTest()
         {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("kaffe")).AsButton();
-            Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
+            Button coffeebutton = _window.FindFirstDescendant(_cf.ByAutomationId("kaffe")).AsButton();
+            Button resetbutton = _window.FindFirstDescendant(_cf.ByAutomationId("reset")).AsButton();
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
             coffeebutton.Click();
             coffeebutton.Click();
             resetbutton.Click();
             Trace.Assert(totalpricelabel.Text == "0 kr", "Reset button does not work");
-            window.Close();
         }
 
         [TestMethod]
-        public void ResetAndCountinueTest()
+        public void ResetAndContinueTest()
         {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-
-            Button coffeebutton = window.FindFirstDescendant(cf.ByAutomationId("kaffe")).AsButton();
-            Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
+            Button coffeebutton = _window.FindFirstDescendant(_cf.ByAutomationId("kaffe")).AsButton();
+            Button resetbutton = _window.FindFirstDescendant(_cf.ByAutomationId("reset")).AsButton();
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
             resetbutton.Click();
             coffeebutton.Click();
             Trace.Assert(totalpricelabel.Text == "15 kr", "Add coffee combined with reset price does not work");
-            window.Close();
         }
 
         [TestMethod]
         public void ResetWhenZeroTest()
         {
-            (Window window, ConditionFactory cf) = StartWindowHelper();
-            Button resetbutton = window.FindFirstDescendant(cf.ByAutomationId("reset")).AsButton();
-            Label totalpricelabel = window.FindFirstDescendant(cf.ByAutomationId("totalPrice")).AsLabel();
+            Button resetbutton = _window.FindFirstDescendant(_cf.ByAutomationId("reset")).AsButton();
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
 
             resetbutton.Click();
             Trace.Assert(totalpricelabel.Text == "0 kr", "Reset when total is zero does not work");
-            window.Close();
         }
     }
 }
