@@ -27,6 +27,10 @@ namespace checkout_system_cafe
             [
                 // Add products here
                 new Product { Name = "Kaffe", Price = 15 },
+                new Product { Name = "Cappuccino", Price = 30},
+                new Product { Name = "Bulle", Price = 10 },
+                new Product { Name = "Te", Price = 15 },
+                new Product { Name = "IsTe", Price = 25 }
             ];
         }
 
