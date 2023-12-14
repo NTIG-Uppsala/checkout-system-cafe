@@ -40,7 +40,7 @@ namespace checkout_system_cafe
                 new Product { Name = "Cappuccino", Price = 30},
                 new Product { Name = "Bulle", Price = 10 },
                 new Product { Name = "Te", Price = 15 },
-                new Product { Name = "Iste", Price = 25 }
+                new Product { Name = "Iste", Price = 25 },
             ];
         }
 
@@ -51,7 +51,7 @@ namespace checkout_system_cafe
                 Content = product.Name,
                 Width = BUTTON_WIDTH,
                 Height = BUTTON_HEIGHT,
-                Margin = new Thickness(0, index * (BUTTON_HEIGHT + 50), 250, 150)
+                Margin = new Thickness(0, index * (BUTTON_HEIGHT + 50), 250, 150),
             };
 
             AutomationProperties.SetAutomationId(productButton, product.Name?.ToLower());
