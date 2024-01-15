@@ -113,5 +113,18 @@ namespace Tests
             resetbutton.Click();
             Trace.Assert(totalpricelabel.Text == "0 kr", "Reset when total is zero does not work");
         }
+
+        [TestMethod]
+        public void PaymentTest()
+        {
+            Button coffeebutton = _window.FindFirstDescendant(_cf.ByAutomationId("kaffe")).AsButton();
+            Button paymentbutton = _window.FindFirstDescendant(_cf.ByAutomationId("payment")).AsButton();
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
+
+            coffeebutton.Click();
+            coffeebutton.Click();
+            paymentbutton.Click();
+            Trace.Assert(totalpricelabel.Text == "0 kr", "Payment button does not work");
+        }
     }
 }
