@@ -40,7 +40,7 @@ namespace Tests
         public void ZeroAtStartTest()
         {
             Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
-            Trace.Assert(totalpricelabel.Text == "0 kr", "Could not find 0 kr");
+            Trace.Assert(totalpricelabel.Text == "0,00 kr", "Could not find 0,00 kr");
         }
 
         [TestMethod]
@@ -50,7 +50,17 @@ namespace Tests
             Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
 
             coffeebutton.Click();
-            Trace.Assert(totalpricelabel.Text == "15 kr", "Could not find 15 kr");
+            Trace.Assert(totalpricelabel.Text == "15,00 kr", "Could not find 15,00 kr");
+        }
+
+        [TestMethod]
+        public void OneBunTest()
+        {
+            Button bunbutton = _window.FindFirstDescendant(_cf.ByAutomationId("bulle")).AsButton();
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
+
+            bunbutton.Click();
+            Trace.Assert(totalpricelabel.Text == "12,50 kr", "Could not find 12,50 kr");
         }
 
         [TestMethod]
@@ -62,7 +72,7 @@ namespace Tests
             coffeebutton.Click();
             coffeebutton.Click();
             coffeebutton.Click();
-            Trace.Assert(totalpricelabel.Text == "45 kr", "Total price does not work");
+            Trace.Assert(totalpricelabel.Text == "45,00 kr", "Total price does not work");
         }
 
         [TestMethod]
@@ -74,7 +84,7 @@ namespace Tests
             cappuccinobutton.Click();
             cappuccinobutton.Click();
             cappuccinobutton.Click();
-            Trace.Assert(totalpricelabel.Text == "90 kr", "Could not find 90 kr");
+            Trace.Assert(totalpricelabel.Text == "90,00 kr", "Could not find 90,00 kr");
         }
 
         [TestMethod]
@@ -88,7 +98,7 @@ namespace Tests
             coffeebutton.Click();
             coffeebutton.Click();
             resetbutton.Click();
-            Trace.Assert(totalpricelabel.Text == "0 kr", "Reset button does not work");
+            Trace.Assert(totalpricelabel.Text == "0,00 kr", "Reset button does not work");
         }
 
         [TestMethod]
@@ -101,7 +111,7 @@ namespace Tests
             coffeebutton.Click();
             resetbutton.Click();
             coffeebutton.Click();
-            Trace.Assert(totalpricelabel.Text == "15 kr", "Add coffee combined with reset price does not work");
+            Trace.Assert(totalpricelabel.Text == "15,00 kr", "Add coffee combined with reset price does not work");
         }
 
         [TestMethod]
@@ -111,7 +121,7 @@ namespace Tests
             Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
 
             resetbutton.Click();
-            Trace.Assert(totalpricelabel.Text == "0 kr", "Reset when total is zero does not work");
+            Trace.Assert(totalpricelabel.Text == "0,00 kr", "Reset when total is zero does not work");
         }
 
         [TestMethod]
@@ -124,7 +134,7 @@ namespace Tests
             coffeebutton.Click();
             coffeebutton.Click();
             paymentbutton.Click();
-            Trace.Assert(totalpricelabel.Text == "0 kr", "Payment button does not work");
+            Trace.Assert(totalpricelabel.Text == "0,00 kr", "Payment button does not work");
         }
     }
 }

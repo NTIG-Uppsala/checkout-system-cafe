@@ -5,7 +5,7 @@ namespace checkout_system_cafe
 {
     public partial class MainWindow : Window
     {
-        private decimal _totalPriceAmount = 0; // Price in SEK (kr)
+        private decimal _totalPriceAmount = 0.00M; // Price in SEK (kr)
         const int BUTTON_WIDTH = 100;
         const int BUTTON_HEIGHT = 40;
 
@@ -36,11 +36,11 @@ namespace checkout_system_cafe
             return
             [
                 // Add products here
-                new Product { Name = "Kaffe", Price = 15 },
-                new Product { Name = "Cappuccino", Price = 30 },
-                new Product { Name = "Bulle", Price = 10 },
-                new Product { Name = "Te", Price = 15 },
-                new Product { Name = "Iste", Price = 25 },
+                new Product { Name = "Kaffe", Price = 15.00M },
+                new Product { Name = "Cappuccino", Price = 30.00M },
+                new Product { Name = "Bulle", Price = 12.50M },
+                new Product { Name = "Te", Price = 15.00M },
+                new Product { Name = "Iste", Price = 25.00M },
             ];
         }
 
@@ -72,13 +72,13 @@ namespace checkout_system_cafe
 
         private void ResetClick(object sender, RoutedEventArgs e)
         {
-            _totalPriceAmount = 0;
+            _totalPriceAmount = 0.00M;
             UpdateDisplayedTotalPrice();
         }
 
         private void PaymentClick(object sender, RoutedEventArgs e)
         {
-            _totalPriceAmount = 0;
+            _totalPriceAmount = 0.00M;
             UpdateDisplayedTotalPrice();
         }
     }
