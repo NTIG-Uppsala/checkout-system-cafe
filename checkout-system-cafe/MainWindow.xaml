@@ -9,5 +9,6 @@
     <Grid x:Name="mainGrid">
         <Label x:Name="totalPrice" Content="0 kr" HorizontalAlignment="Left" Margin="593,372,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
         <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Click="ResetClick" Height="41" Width="100"/>
+        <Button x:Name="payment" Content="Betala" HorizontalAlignment="Center" Margin="0,433,0,0" VerticalAlignment="Top" Click="PaymentClick" Height="41" Width="100"/>
     </Grid>
 </Window>

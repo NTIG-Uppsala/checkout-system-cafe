@@ -75,5 +75,11 @@ namespace checkout_system_cafe
             _totalPriceAmount = 0;
             UpdateDisplayedTotalPrice();
         }
+
+        private void PaymentClick(object sender, RoutedEventArgs e)
+        {
+            _totalPriceAmount = 0;
+            UpdateDisplayedTotalPrice();
+        }
     }
 }
