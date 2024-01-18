@@ -136,5 +136,24 @@ namespace Tests
             paymentbutton.Click();
             Trace.Assert(totalpricelabel.Text == "0,00 kr", "Payment button does not work");
         }
+
+        [TestMethod]
+        public void ChosenProductsTest()
+        {
+            Button coffeebutton = _window.FindFirstDescendant(_cf.ByAutomationId("kaffe")).AsButton();
+            Button bunbutton = _window.FindFirstDescendant(_cf.ByAutomationId("bulle")).AsButton();
+
+            coffeebutton.Click();
+            bunbutton.Click(); 
+
+            DataGridView productwindow = _window.FindFirstDescendant(_cf.ByAutomationId("dataGrid")).AsDataGridView();
+
+            // Verify the added products name
+            var coffeeaddedtowindow = productwindow.Rows.Any(row => row.Cells[0].Value.ToString() == "Kaffe");
+            Trace.Assert(coffeeaddedtowindow);
+
+            var bunaddedtowindow = productwindow.Rows.Any(row => row.Cells[0].Value.ToString() == "Bulle");
+            Trace.Assert(bunaddedtowindow);
+        }
     }
 }
