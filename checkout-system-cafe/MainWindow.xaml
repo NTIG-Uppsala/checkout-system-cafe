@@ -7,8 +7,16 @@
         mc:Ignorable="d"
         Title="Checkout-cafe" Height="768" Width="1024">
     <Grid x:Name="mainGrid">
-        <Label x:Name="totalPrice" Content="0,00 kr" HorizontalAlignment="Left" Margin="593,372,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
-        <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Click="ResetClick" Height="41" Width="100"/>
-        <Button x:Name="payment" Content="Betala" HorizontalAlignment="Center" Margin="0,433,0,0" VerticalAlignment="Top" Click="PaymentClick" Height="41" Width="100"/>
+        <Label x:Name="totalPrice" Content="0,00 kr" HorizontalAlignment="Center" Margin="0,459,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
+        <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" Click="ResetClick" Height="40" Width="100"/>
+        <Button x:Name="payment" Content="Betala" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Click="PaymentClick" Height="40" Width="100"/>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="100,258,741,232">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Produkt" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Pris (kr)" Binding="{Binding Price}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>
+
