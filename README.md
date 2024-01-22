@@ -15,7 +15,7 @@ Visual Studio 2022, latest community version at the time of commit download
 * .NET v. 8.0
   
 ### Coding Standard
-* Follow the .editorconfig folder for coding standard, located in the folder
+* Follow the .editorconfig file for coding standard, located in the project folder named "checkout-system-cafe"
 
 ### Extensions
 * FlaUI.UIA3
