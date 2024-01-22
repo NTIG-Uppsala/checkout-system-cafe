@@ -1,4 +1,5 @@
 # checkout-cafe
+### A cash register system for a cafe
 
 ## Development Environment Standard
 ### IDE
