@@ -1,5 +1,5 @@
 # checkout-cafe
-### A cash register system for a cafe
+### This project is as point of sale system for a cafe, made with WPF and C#
 
 ## Development Environment Standard
 ### IDE
