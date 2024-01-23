@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace checkout_system_cafe
+namespace Checkout_system_cafe
 {
     /// <summary>
     /// Interaction logic for App.xaml

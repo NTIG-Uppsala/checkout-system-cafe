@@ -15,7 +15,9 @@ namespace Tests
 
         private readonly string _pathToExecutable;
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public UnitTest1()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location) ?? throw new Exception();
             _pathToExecutable = Path.Combine(currentDirectory, "..", "..", "..", "..", "checkout-system-cafe\\bin\\Debug\\net8.0-windows\\checkout-system-cafe.exe");
@@ -144,16 +146,41 @@ namespace Tests
             Button bunbutton = _window.FindFirstDescendant(_cf.ByAutomationId("bulle")).AsButton();
 
             coffeebutton.Click();
-            bunbutton.Click(); 
+            bunbutton.Click();
 
             DataGridView productwindow = _window.FindFirstDescendant(_cf.ByAutomationId("dataGrid")).AsDataGridView();
 
-            // Verify the added products name
-            var coffeeaddedtowindow = productwindow.Rows.Any(row => row.Cells[0].Value.ToString() == "Kaffe");
-            Trace.Assert(coffeeaddedtowindow);
+            // List of item names which should be seen in the product grid
+            string[] productstocheck = ["Kaffe", "Bulle"];
 
-            var bunaddedtowindow = productwindow.Rows.Any(row => row.Cells[0].Value.ToString() == "Bulle");
-            Trace.Assert(bunaddedtowindow);
+            // Checks that item names is displayed in any row or cell in the product grid
+            foreach (var product in productstocheck)
+            {
+                var productexists = productwindow.Rows.Any(row =>
+                    row.Cells.Any(cell => cell.Value != null && cell.Value.ToString() == product));
+
+                // Checks if productexists is true, otherwise it will show an error message 
+                Trace.Assert(productexists, $"Product '{product}' not found in the product grid.");
+            }
+        }
+
+        [TestMethod]
+        public void MultipleChosenProductsTest()
+        {
+            Button cappuccinobutton = _window.FindFirstDescendant(_cf.ByAutomationId("cappuccino")).AsButton();
+
+            cappuccinobutton.Click();
+            cappuccinobutton.Click();
+            cappuccinobutton.Click();
+
+            DataGridView productwindow = _window.FindFirstDescendant(_cf.ByAutomationId("dataGrid")).AsDataGridView();
+
+            // Checks that correct amount is displayed in any row or cell in the product grid
+            var correctamount = productwindow.Rows.Any(row =>
+                row.Cells.Any(cell => cell.Value != null && Convert.ToInt32(cell.Value) == 3));
+
+            // Checks if correctamount is true, otherwise it will show an error message 
+            Trace.Assert(correctamount, $"Amount '3' not found in the product grid.");
         }
     }
 }

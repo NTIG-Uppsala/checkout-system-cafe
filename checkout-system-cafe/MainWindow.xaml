@@ -1,9 +1,9 @@
-﻿<Window x:Class="checkout_system_cafe.MainWindow"
+﻿<Window x:Class="Checkout_system_cafe.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:checkout_system_cafe"
+        xmlns:local="clr-namespace:Checkout_system_cafe"
         mc:Ignorable="d"
         Title="Checkout-cafe" Height="768" Width="1024">
     <Grid x:Name="mainGrid">
@@ -12,6 +12,7 @@
         <Button x:Name="payment" Content="Betala" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Click="PaymentClick" Height="40" Width="100"/>
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="100,258,741,232">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Antal" Binding="{Binding Amount}" />
                 <DataGridTextColumn Header="Produkt" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Pris (kr)" Binding="{Binding Price}" />
             </DataGrid.Columns>
