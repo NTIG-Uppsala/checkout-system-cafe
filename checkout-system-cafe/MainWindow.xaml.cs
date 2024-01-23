@@ -1,9 +1,10 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
-using System.Collections.ObjectModel;
 
-namespace checkout_system_cafe
+namespace Checkout_system_cafe
 {
     public partial class MainWindow : Window
     {
@@ -19,13 +20,47 @@ namespace checkout_system_cafe
             dataGrid.ItemsSource = Products;
         }
 
-        public class Product
+        public class Product : INotifyPropertyChanged
         {
             public string? Name { get; set; }
 
-            public decimal Price { get; set; }
-        }
+            private decimal _price;
+            public decimal Price
+            {
+                get { return _price; }
 
+                // If price is changed, xaml/user interface is notified and updated
+                set
+                {
+                    if (_price != value)
+                    {
+                        _price = value;
+                        OnPropertyChanged(nameof(Price)); // The event which notifies xaml/user interface with name of the changed property
+                    }
+                }
+            }
+
+            private int _amount;
+            public int Amount
+            {
+                get { return _amount; }
+                set
+                {
+                    if (_amount != value)
+                    {
+                        _amount = value;
+                        OnPropertyChanged(nameof(Amount));
+                    }
+                }
+            }
+
+            public event PropertyChangedEventHandler? PropertyChanged;
+
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
 
         private void InitializeProductButtons()
         {
@@ -42,11 +77,11 @@ namespace checkout_system_cafe
             return
             [
                 // Add products here
-                new Product { Name = "Kaffe", Price = 15.00M},
-                new Product { Name = "Cappuccino", Price = 30.00M},
-                new Product { Name = "Bulle", Price = 12.50M},
-                new Product { Name = "Te", Price = 15.00M},
-                new Product { Name = "Iste", Price = 25.00M},
+                new Product { Name = "Kaffe", Price = 15.00M },
+                new Product { Name = "Cappuccino", Price = 30.00M },
+                new Product { Name = "Bulle", Price = 12.50M },
+                new Product { Name = "Te", Price = 15.00M },
+                new Product { Name = "Iste", Price = 25.00M }
             ];
         }
 
@@ -64,17 +99,30 @@ namespace checkout_system_cafe
 
             productButton.Click += (sender, e) =>
             {
-                _totalPriceAmount += product.Price;
-                UpdateDisplayedTotalPrice();
-                Product newProduct = new() // Adds the chosen products to the order grid
+                var existingProduct = Products?.FirstOrDefault(item => item.Name == product.Name); // Checks if chosen product is already in product grid
+
+                if (existingProduct != null)
                 {
-                    Name = product.Name,
-                    Price = product.Price,
-                };
-                Products?.Add(newProduct);
+                    existingProduct.Amount++;
+                    existingProduct.Price += product.Price;
+                    _totalPriceAmount += product.Price;
+                }
+                else
+                {
+                    Product newProduct = new()
+                    {
+                        Name = product.Name,
+                        Price = product.Price,
+                        Amount = 1
+                    };
+                    Products?.Add(newProduct);
+                    _totalPriceAmount += product.Price;
+                }
+                UpdateDisplayedTotalPrice();
             };
             return productButton;
         }
+
 
         private void UpdateDisplayedTotalPrice()
         {
