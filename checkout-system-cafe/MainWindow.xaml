@@ -6,15 +6,19 @@
         xmlns:local="clr-namespace:Checkout_system_cafe"
         mc:Ignorable="d"
         Title="Checkout-cafe" Height="768" Width="1024">
-    <Grid x:Name="mainGrid">
-        <Label x:Name="totalPrice" Content="0,00 kr" HorizontalAlignment="Center" Margin="0,459,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
-        <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" Click="ResetClick" Height="40" Width="100"/>
-        <Button x:Name="payment" Content="Betala" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Click="PaymentClick" Height="40" Width="100"/>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="100,258,741,232">
     <Grid x:Name="mainGrid" Height="768" Width="1024">
         <Label x:Name="totalPrice" Content="0,00 kr" HorizontalAlignment="Left" Margin="236,514,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
         <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Left" Margin="209,421,0,0" VerticalAlignment="Top" Click="ResetClick" Height="40" Width="100"/>
         <Button x:Name="payment" Content="Betala" HorizontalAlignment="Left" Margin="209,469,0,0" VerticalAlignment="Top" Click="PaymentClick" Height="40" Width="100"/>
+        <Button x:Name="showHistory" Content="Visa historik" HorizontalAlignment="Left" Margin="209,376,0,0" VerticalAlignment="Top" Click="ShowHistoryClick" Height="40" Width="100"/>
+        <Button x:Name="hideHistory" Content="Göm historik" HorizontalAlignment="Left" Margin="209,331,0,0" VerticalAlignment="Top" Click="HideHistoryClick" Height="40" Width="100"/>
+        <DataGrid x:Name="historyDataGrid" AutoGenerateColumns="False" Margin="684,267,140,267" Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Antal" Binding="{Binding Amount}" />
+                <DataGridTextColumn Header="Betalda produkter" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Pris (kr)" Binding="{Binding Price}" />
+            </DataGrid.Columns>
+        </DataGrid>
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="460,267,363,223">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Antal" Binding="{Binding Amount}" />

@@ -182,5 +182,35 @@ namespace Tests
             // Checks if correctamount is true, otherwise it will show an error message 
             Trace.Assert(correctamount, $"Amount '3' not found in the product grid.");
         }
+
+        [TestMethod]
+        public void ProductHistoryTest()
+        {
+            Button cappuccinobutton = _window.FindFirstDescendant(_cf.ByAutomationId("cappuccino")).AsButton();
+            Button coffeebutton = _window.FindFirstDescendant(_cf.ByAutomationId("kaffe")).AsButton();
+            Button iceteabutton = _window.FindFirstDescendant(_cf.ByAutomationId("iste")).AsButton();
+            Button paymentbutton = _window.FindFirstDescendant(_cf.ByAutomationId("payment")).AsButton();
+            Button showhistorybutton = _window.FindFirstDescendant(_cf.ByAutomationId("showHistory")).AsButton();
+
+            cappuccinobutton.Click();
+            coffeebutton.Click();
+            paymentbutton.Click();
+            iceteabutton.Click();
+            paymentbutton.Click();
+            showhistorybutton.Click();
+
+            DataGridView historywindow = _window.FindFirstDescendant(_cf.ByAutomationId("historyDataGrid")).AsDataGridView();
+
+            string[] productstocheck = ["Cappuccino", "Kaffe", "Iste"];
+
+            // Loop that verifies so every payed product exists in the history product grid
+            foreach (var product in productstocheck)
+            {
+                var productexists = historywindow.Rows.Any(row =>
+                    row.Cells.Any(cell => cell.Value != null && cell.Value.ToString() == product));
+
+                Trace.Assert(productexists, $"Product '{product}' not found in the product grid.");
+            }
+        }
     }
 }
