@@ -11,13 +11,15 @@ namespace Checkout_system_cafe
         private decimal _totalPriceAmount = 0.00M; // Price in SEK (kr)
         const int BUTTON_WIDTH = 100;
         const int BUTTON_HEIGHT = 40;
-        public ObservableCollection<Product>? Products = [];
+        public ObservableCollection<Product> Products = [];
+        public ObservableCollection<Product> SavedProducts { get; set; } = []; // Product history list
 
         public MainWindow()
         {
             InitializeComponent();
             InitializeProductButtons();
             dataGrid.ItemsSource = Products;
+            historyDataGrid.ItemsSource = SavedProducts;
         }
 
         public class Product : INotifyPropertyChanged
@@ -54,10 +56,12 @@ namespace Checkout_system_cafe
                 }
             }
 
+            // Implements the INotifyPropertyChanged interface to notify other parts of the program when a property changes
             public event PropertyChangedEventHandler? PropertyChanged;
 
             protected virtual void OnPropertyChanged(string propertyName)
             {
+                // Triggers the PropertyChanged event which notifies xaml code/user interface
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
@@ -123,7 +127,6 @@ namespace Checkout_system_cafe
             return productButton;
         }
 
-
         private void UpdateDisplayedTotalPrice()
         {
             totalPrice.Content = $"{_totalPriceAmount} kr";
@@ -138,9 +141,28 @@ namespace Checkout_system_cafe
 
         private void PaymentClick(object sender, RoutedEventArgs e)
         {
+            // If "betala" button is pressed, products in the original grid is copied to the history grid
+            foreach (var product in Products)
+            {
+                SavedProducts.Add(new Product
+                {
+                    Name = product.Name,
+                    Price = product.Price,
+                    Amount = product.Amount
+                });
+            }
             _totalPriceAmount = 0.00M;
             UpdateDisplayedTotalPrice();
             Products?.Clear();
+        }
+
+        private void ShowHistoryClick(object sender, RoutedEventArgs e)
+        {
+            historyDataGrid.Visibility = Visibility.Visible;
+        }
+        private void HideHistoryClick(object sender, RoutedEventArgs e)
+        {
+            historyDataGrid.Visibility = Visibility.Collapsed;
         }
     }
 }
