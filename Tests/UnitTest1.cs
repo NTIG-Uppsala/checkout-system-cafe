@@ -212,5 +212,24 @@ namespace Tests
                 Trace.Assert(productexists, $"Product '{product}' not found in the product grid.");
             }
         }
+        [TestMethod]
+        public void RegretButtonTest()
+        {
+            Button coffeebutton = _window.FindFirstDescendant(_cf.ByAutomationId("kaffe")).AsButton();
+            Button bunbutton = _window.FindFirstDescendant(_cf.ByAutomationId("bulle")).AsButton();
+            Button regretbutton = _window.FindFirstDescendant(_cf.ByAutomationId("regret")).AsButton();
+            Label totalpricelabel = _window.FindFirstDescendant(_cf.ByAutomationId("totalPrice")).AsLabel();
+
+            coffeebutton.Click();
+            bunbutton.Click();
+            regretbutton.Click();
+
+            DataGridView productwindow = _window.FindFirstDescendant(_cf.ByAutomationId("dataGrid")).AsDataGridView();
+
+            Trace.Assert(totalpricelabel.Text == "15,00 kr", "Total price does not update correctly when regret button is pressed");
+            var correctproduct = productwindow.Rows.Any(row =>
+                row.Cells.Any(cell => cell.Value != null && cell.Value.ToString() == "Kaffe")); // Verifies that coffee is the only product left in the dataGrid
+            Trace.Assert(correctproduct, "Correct product 'Kaffe' not found when 'Ångra' button is pressed");
+        }
     }
 }

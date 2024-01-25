@@ -8,10 +8,11 @@
         Title="Checkout-cafe" Height="768" Width="1024">
     <Grid x:Name="mainGrid" Height="768" Width="1024">
         <Label x:Name="totalPrice" Content="0,00 kr" HorizontalAlignment="Left" Margin="236,514,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,0.54"/>
-        <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Left" Margin="209,421,0,0" VerticalAlignment="Top" Click="ResetClick" Height="40" Width="100"/>
+        <Button x:Name="reset" Content="Nollställ" HorizontalAlignment="Left" Margin="209,424,0,0" VerticalAlignment="Top" Click="ResetClick" Height="40" Width="100"/>
         <Button x:Name="payment" Content="Betala" HorizontalAlignment="Left" Margin="209,469,0,0" VerticalAlignment="Top" Click="PaymentClick" Height="40" Width="100"/>
-        <Button x:Name="showHistory" Content="Visa historik" HorizontalAlignment="Left" Margin="209,376,0,0" VerticalAlignment="Top" Click="ShowHistoryClick" Height="40" Width="100"/>
-        <Button x:Name="hideHistory" Content="Göm historik" HorizontalAlignment="Left" Margin="209,331,0,0" VerticalAlignment="Top" Click="HideHistoryClick" Height="40" Width="100"/>
+        <Button x:Name="showHistory" Content="Visa historik" HorizontalAlignment="Left" Margin="209,379,0,0" VerticalAlignment="Top" Click="ShowHistoryClick" Height="40" Width="100"/>
+        <Button x:Name="hideHistory" Content="Göm historik" HorizontalAlignment="Left" Margin="209,334,0,0" VerticalAlignment="Top" Click="HideHistoryClick" Height="40" Width="100"/>
+        <Button x:Name="regret" Content="Ångra" HorizontalAlignment="Left" Margin="209,289,0,0" VerticalAlignment="Top" Click="RegretClick" Height="40" Width="100"/>
         <DataGrid x:Name="historyDataGrid" AutoGenerateColumns="False" Margin="684,267,140,267" Visibility="Collapsed">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Antal" Binding="{Binding Amount}" />
@@ -26,7 +27,6 @@
                 <DataGridTextColumn Header="Pris (kr)" Binding="{Binding Price}" />
             </DataGrid.Columns>
         </DataGrid>
-
     </Grid>
 </Window>
 
