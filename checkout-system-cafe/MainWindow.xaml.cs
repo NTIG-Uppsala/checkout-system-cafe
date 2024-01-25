@@ -13,6 +13,7 @@ namespace Checkout_system_cafe
         const int BUTTON_HEIGHT = 40;
         public ObservableCollection<Product> Products = [];
         public ObservableCollection<Product> SavedProducts { get; set; } = []; // Product history list
+        public ObservableCollection<Product> PreviousProducts { get; set; } = [];
 
         public MainWindow()
         {
@@ -103,6 +104,17 @@ namespace Checkout_system_cafe
 
             productButton.Click += (sender, e) =>
             {
+                PreviousProducts.Clear();
+                foreach (var product in Products)
+                {
+                    PreviousProducts.Add(new Product
+                    {
+                        Name = product.Name,
+                        Price = product.Price,
+                        Amount = product.Amount
+                    });
+                }
+
                 var existingProduct = Products?.FirstOrDefault(item => item.Name == product.Name); // Checks if chosen product is already in product grid
 
                 if (existingProduct != null)
@@ -163,6 +175,13 @@ namespace Checkout_system_cafe
         private void HideHistoryClick(object sender, RoutedEventArgs e)
         {
             historyDataGrid.Visibility = Visibility.Collapsed;
+        }
+        private void RegretClick(object sender, RoutedEventArgs e)
+        {
+            Products = new ObservableCollection<Product>(PreviousProducts); // Updates the observablecollection which is connected to the datagrid
+            _totalPriceAmount = Products?.Sum(product => product.Price * product.Amount) ?? 0.00M;
+            UpdateDisplayedTotalPrice();
+            dataGrid.ItemsSource = Products;
         }
     }
 }
